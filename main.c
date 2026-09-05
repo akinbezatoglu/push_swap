@@ -6,7 +6,7 @@
 /*   By: abezatog <abezatog@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/05 17:18:42 by abezatog          #+#    #+#             */
-/*   Updated: 2026/09/05 20:18:04 by abezatog         ###   ########.fr       */
+/*   Updated: 2026/09/05 21:14:53 by abezatog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,29 @@ static int	ft_parse_strategy_flag(char *arg, t_config *config)
 	return (1);
 }
 
+static t_stack	*ft_parse_numbers(char **argv)
+{
+	t_stack	*stack;
+
+	if (!ft_isnumber(*argv))
+		return (NULL);
+	stack = ft_stacknew(*argv);
+	if (!stack)
+		return (NULL);
+	argv++;
+	while (*argv)
+	{
+		if (!ft_isnumber(*argv))
+		{
+			ft_stackclear(&stack);
+			return (NULL);
+		}
+		ft_stackadd_back(&stack, ft_stacknew(*argv));
+		argv++;
+	}
+	return (stack);
+}
+
 static void	ft_print(t_stack *stack, t_config config)
 {
 	while (stack)
@@ -65,19 +88,10 @@ int	main(int argc, char **argv)
 		argv++;
 	if (ft_parse_strategy_flag(*argv, &config))
 		argv++;
-	if (!ft_isnumber(*argv))
+	stack = ft_parse_numbers(argv);
+	if (!stack)
 		return (0);
-	stack = ft_stacknew(*argv++);
-	while (*argv)
-	{
-		if (!ft_isnumber(*argv))
-		{
-			ft_stackclear(&stack);
-			return (0);
-		}
-		ft_stackadd_back(&stack, ft_stacknew(*argv));
-		argv++;
-	}
 	ft_print(stack, config);
 	ft_stackclear(&stack);
+	return (0);
 }
