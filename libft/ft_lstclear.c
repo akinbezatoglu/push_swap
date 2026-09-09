@@ -1,28 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_stackadd_back.c                                 :+:      :+:    :+:   */
+/*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abezatog <abezatog@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/09/05 19:04:09 by abezatog          #+#    #+#             */
-/*   Updated: 2026/09/05 19:19:49 by abezatog         ###   ########.fr       */
+/*   Created: 2026/08/19 10:46:35 by abezatog          #+#    #+#             */
+/*   Updated: 2026/08/19 11:06:00 by abezatog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-void	ft_stackadd_back(t_stack **stack, t_stack *new)
+void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
-	t_stack	*last;
+	t_list	*current_node;
+	t_list	*next_node;
 
-	if (!stack || !new)
+	if (!lst || !del)
 		return ;
-	if (*stack == NULL)
+	current_node = *lst;
+	while (current_node)
 	{
-		*stack = new;
-		return ;
+		next_node = current_node->next;
+		del(current_node->content);
+		free(current_node);
+		current_node = next_node;
 	}
-	last = ft_stacklast(*stack);
-	last->next = new;
+	*lst = NULL;
 }

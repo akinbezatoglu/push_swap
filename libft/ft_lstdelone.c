@@ -1,39 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abezatog <abezatog@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/09/05 17:30:55 by abezatog          #+#    #+#             */
-/*   Updated: 2026/09/10 00:04:12 by abezatog         ###   ########.fr       */
+/*   Created: 2026/08/19 10:31:57 by abezatog          #+#    #+#             */
+/*   Updated: 2026/08/19 10:45:43 by abezatog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "libft.h"
 
-# include <stdio.h>
-# include "libft/libft.h"
-
-typedef enum e_strategy
+void	ft_lstdelone(t_list *lst, void (*del)(void*))
 {
-	ADAPTIVE,
-	SIMPLE,
-	MEDIUM,
-	COMPLEX,
-}	t_strategy;
-
-typedef struct s_context
-{
-	int			bench;
-	t_strategy	strategy;
-	t_list		*a;
-	t_list		*b;
-}	t_context;
-
-t_context	*ft_ctxnew(void);
-void		ft_ctxclear(t_context **ctx, void (*del)(void *));
-t_context	*ft_parser(char **argv);
-
-#endif
+	if (!lst || !del)
+		return ;
+	del(lst->content);
+	free(lst);
+}

@@ -1,30 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_stackclear.c                                    :+:      :+:    :+:   */
+/*   ft_lstlast.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abezatog <abezatog@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/09/05 20:13:03 by abezatog          #+#    #+#             */
-/*   Updated: 2026/09/05 20:14:48 by abezatog         ###   ########.fr       */
+/*   Created: 2026/08/19 09:43:12 by abezatog          #+#    #+#             */
+/*   Updated: 2026/08/19 09:54:27 by abezatog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-void	ft_stackclear(t_stack **stack)
+t_list	*ft_lstlast(t_list *lst)
 {
-	t_stack	*current_node;
-	t_stack	*next_node;
-
-	if (!stack)
-		return ;
-	current_node = *stack;
-	while (current_node)
+	if (!lst)
+		return (lst);
+	while (lst->next)
 	{
-		next_node = current_node->next;
-		free(current_node);
-		current_node = next_node;
+		lst = lst->next;
 	}
-	*stack = NULL;
+	return (lst);
 }

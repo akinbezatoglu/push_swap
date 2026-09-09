@@ -1,24 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isnumber.c                                      :+:      :+:    :+:   */
+/*   ft_lstiter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abezatog <abezatog@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/09/05 20:01:57 by abezatog          #+#    #+#             */
-/*   Updated: 2026/09/05 20:06:56 by abezatog         ###   ########.fr       */
+/*   Created: 2026/08/19 11:05:43 by abezatog          #+#    #+#             */
+/*   Updated: 2026/08/19 11:37:11 by abezatog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int	ft_isnumber(char *val)
+void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
-	while (*val)
+	if (!f)
+		return ;
+	while (lst)
 	{
-		if (!ft_isdigit(*val))
-			return (0);
-		val++;
+		f(lst->content);
+		lst = lst->next;
 	}
-	return (1);
 }

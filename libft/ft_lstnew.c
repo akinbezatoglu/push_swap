@@ -1,39 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abezatog <abezatog@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/09/05 17:30:55 by abezatog          #+#    #+#             */
-/*   Updated: 2026/09/10 00:04:12 by abezatog         ###   ########.fr       */
+/*   Created: 2026/08/18 23:40:04 by abezatog          #+#    #+#             */
+/*   Updated: 2026/08/19 00:16:20 by abezatog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "libft.h"
 
-# include <stdio.h>
-# include "libft/libft.h"
-
-typedef enum e_strategy
+t_list	*ft_lstnew(void *content)
 {
-	ADAPTIVE,
-	SIMPLE,
-	MEDIUM,
-	COMPLEX,
-}	t_strategy;
+	t_list	*l;
 
-typedef struct s_context
-{
-	int			bench;
-	t_strategy	strategy;
-	t_list		*a;
-	t_list		*b;
-}	t_context;
-
-t_context	*ft_ctxnew(void);
-void		ft_ctxclear(t_context **ctx, void (*del)(void *));
-t_context	*ft_parser(char **argv);
-
-#endif
+	l = (t_list *)malloc(1 * sizeof(t_list));
+	if (!l)
+		return (NULL);
+	l->content = content;
+	l->next = NULL;
+	return (l);
+}

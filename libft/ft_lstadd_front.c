@@ -1,39 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abezatog <abezatog@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/09/05 17:30:55 by abezatog          #+#    #+#             */
-/*   Updated: 2026/09/10 00:04:12 by abezatog         ###   ########.fr       */
+/*   Created: 2026/08/18 23:48:49 by abezatog          #+#    #+#             */
+/*   Updated: 2026/08/19 00:17:38 by abezatog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "libft.h"
 
-# include <stdio.h>
-# include "libft/libft.h"
-
-typedef enum e_strategy
+void	ft_lstadd_front(t_list **lst, t_list *new)
 {
-	ADAPTIVE,
-	SIMPLE,
-	MEDIUM,
-	COMPLEX,
-}	t_strategy;
-
-typedef struct s_context
-{
-	int			bench;
-	t_strategy	strategy;
-	t_list		*a;
-	t_list		*b;
-}	t_context;
-
-t_context	*ft_ctxnew(void);
-void		ft_ctxclear(t_context **ctx, void (*del)(void *));
-t_context	*ft_parser(char **argv);
-
-#endif
+	if (!lst || !new)
+		return ;
+	new->next = *lst;
+	*lst = new;
+}

@@ -1,39 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abezatog <abezatog@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/09/05 17:30:55 by abezatog          #+#    #+#             */
-/*   Updated: 2026/09/10 00:04:12 by abezatog         ###   ########.fr       */
+/*   Created: 2026/08/19 10:00:08 by abezatog          #+#    #+#             */
+/*   Updated: 2026/08/19 13:41:20 by abezatog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "libft.h"
 
-# include <stdio.h>
-# include "libft/libft.h"
-
-typedef enum e_strategy
+void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	ADAPTIVE,
-	SIMPLE,
-	MEDIUM,
-	COMPLEX,
-}	t_strategy;
+	t_list	*last_node;
 
-typedef struct s_context
-{
-	int			bench;
-	t_strategy	strategy;
-	t_list		*a;
-	t_list		*b;
-}	t_context;
-
-t_context	*ft_ctxnew(void);
-void		ft_ctxclear(t_context **ctx, void (*del)(void *));
-t_context	*ft_parser(char **argv);
-
-#endif
+	if (!lst || !new)
+		return ;
+	if (*lst == NULL)
+	{
+		*lst = new;
+		return ;
+	}
+	last_node = ft_lstlast(*lst);
+	last_node->next = new;
+}

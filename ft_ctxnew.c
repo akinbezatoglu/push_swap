@@ -1,25 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_stacknew.c                                      :+:      :+:    :+:   */
+/*   ft_ctxnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abezatog <abezatog@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/09/05 19:01:13 by abezatog          #+#    #+#             */
-/*   Updated: 2026/09/05 20:01:36 by abezatog         ###   ########.fr       */
+/*   Created: 2026/09/09 22:41:22 by abezatog          #+#    #+#             */
+/*   Updated: 2026/09/09 23:00:33 by abezatog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_stack	*ft_stacknew(char *val)
+t_context	*ft_ctxnew(void)
 {
-	t_stack	*stack;
+	t_context	*ctx;
 
-	stack = (t_stack *)malloc(1 * sizeof(t_stack));
-	if (!stack)
+	ctx = (t_context *)malloc(1 * sizeof(t_context));
+	if (!ctx)
 		return (NULL);
-	stack->value = ft_atoi(val);
-	stack->next = NULL;
-	return (stack);
+	ctx->bench = 0;
+	ctx->strategy = ADAPTIVE;
+	ctx->a = NULL;
+	ctx->b = NULL;
+	return (ctx);
 }

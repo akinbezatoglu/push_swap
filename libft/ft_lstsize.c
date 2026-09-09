@@ -1,24 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_stacklast.c                                     :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abezatog <abezatog@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/09/05 19:06:46 by abezatog          #+#    #+#             */
-/*   Updated: 2026/09/05 19:08:07 by abezatog         ###   ########.fr       */
+/*   Created: 2026/08/19 00:02:01 by abezatog          #+#    #+#             */
+/*   Updated: 2026/08/19 00:11:33 by abezatog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-t_stack	*ft_stacklast(t_stack *stack)
+unsigned int	ft_lstsize(t_list *lst)
 {
-	if (!stack)
-		return (stack);
-	while (stack->next)
+	unsigned int	size;
+
+	size = 0;
+	while (lst)
 	{
-		stack = stack->next;
+		size++;
+		lst = lst->next;
 	}
-	return (stack);
+	return (size);
 }
