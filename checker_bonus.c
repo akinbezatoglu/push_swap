@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checker.c                                          :+:      :+:    :+:   */
+/*   checker_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abezatog <abezatog@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/10 17:09:39 by abezatog          #+#    #+#             */
-/*   Updated: 2026/09/10 22:19:49 by abezatog         ###   ########.fr       */
+/*   Updated: 2026/09/10 22:39:18 by abezatog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "checker.h"
+#include "checker_bonus.h"
 
 static int	ft_map_operations(char *op, t_context **ctx)
 {
