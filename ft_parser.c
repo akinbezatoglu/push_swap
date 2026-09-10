@@ -6,7 +6,7 @@
 /*   By: abezatog <abezatog@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/09 22:35:10 by abezatog          #+#    #+#             */
-/*   Updated: 2026/09/10 08:50:49 by abezatog         ###   ########.fr       */
+/*   Updated: 2026/09/10 10:05:26 by abezatog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,5 +98,10 @@ t_context	*ft_parser(char **argv)
 		return (NULL);
 	}
 	ctx->a = stack_a;
+	if (ctx->strategy == ADAPTIVE)
+	{
+		ctx->disorder = ft_compute_disorder(stack_a);
+		ctx->strategy = ft_strategy_determination(ctx->disorder);
+	}
 	return (ctx);
 }

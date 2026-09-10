@@ -6,7 +6,7 @@
 /*   By: abezatog <abezatog@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/09 22:41:22 by abezatog          #+#    #+#             */
-/*   Updated: 2026/09/09 23:00:33 by abezatog         ###   ########.fr       */
+/*   Updated: 2026/09/10 10:00:21 by abezatog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ t_context	*ft_ctxnew(void)
 	ctx = (t_context *)malloc(1 * sizeof(t_context));
 	if (!ctx)
 		return (NULL);
+	ctx->disorder = 0.0f;
 	ctx->bench = 0;
 	ctx->strategy = ADAPTIVE;
 	ctx->a = NULL;
