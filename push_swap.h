@@ -6,7 +6,7 @@
 /*   By: abezatog <abezatog@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/05 17:30:55 by abezatog          #+#    #+#             */
-/*   Updated: 2026/09/10 16:02:33 by abezatog         ###   ########.fr       */
+/*   Updated: 2026/09/10 21:56:10 by abezatog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,16 +43,16 @@ void		swap(t_list **lst);
 void		push(t_list **src, t_list **dst);
 void		rotate(t_list **lst);
 void		reverse_rotate(t_list **lst);
-void		sa(t_context **ctx);
-void		sb(t_context **ctx);
-void		ss(t_context **ctx);
-void		pa(t_context **ctx);
-void		pb(t_context **ctx);
-void		ra(t_context **ctx);
-void		rb(t_context **ctx);
-void		rr(t_context **ctx);
-void		rra(t_context **ctx);
-void		rrb(t_context **ctx);
-void		rrr(t_context **ctx);
+void		sa(t_context **ctx, int should_print);
+void		sb(t_context **ctx, int should_print);
+void		ss(t_context **ctx, int should_print);
+void		pa(t_context **ctx, int should_print);
+void		pb(t_context **ctx, int should_print);
+void		ra(t_context **ctx, int should_print);
+void		rb(t_context **ctx, int should_print);
+void		rr(t_context **ctx, int should_print);
+void		rra(t_context **ctx, int should_print);
+void		rrb(t_context **ctx, int should_print);
+void		rrr(t_context **ctx, int should_print);
 
 #endif

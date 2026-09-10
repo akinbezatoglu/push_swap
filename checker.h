@@ -1,27 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_push_operations.c                               :+:      :+:    :+:   */
+/*   checker.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abezatog <abezatog@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/09/10 15:51:45 by abezatog          #+#    #+#             */
-/*   Updated: 2026/09/10 21:56:10 by abezatog         ###   ########.fr       */
+/*   Created: 2026/09/10 17:09:51 by abezatog          #+#    #+#             */
+/*   Updated: 2026/09/10 19:12:39 by abezatog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#ifndef CHECKER_H
+# define CHECKER_H
 
-void	pa(t_context **ctx, int should_print)
-{
-	push(&(*ctx)->b, &(*ctx)->a);
-	if (should_print)
-		write(1, "pa\n", 3);
-}
+# include "libft/libft.h"
+# include "push_swap.h"
 
-void	pb(t_context **ctx, int should_print)
-{
-	push(&(*ctx)->a, &(*ctx)->b);
-	if (should_print)
-		write(1, "pb\n", 3);
-}
+#endif

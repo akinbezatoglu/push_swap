@@ -1,35 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_reverse_rotate_operations.c                     :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abezatog <abezatog@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/09/10 15:59:45 by abezatog          #+#    #+#             */
-/*   Updated: 2026/09/10 21:56:10 by abezatog         ###   ########.fr       */
+/*   Created: 2026/08/05 21:48:12 by abezatog          #+#    #+#             */
+/*   Updated: 2026/08/28 18:55:19 by abezatog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-void	rra(t_context **ctx, int should_print)
+char	*ft_strchr(const char *s, int c)
 {
-	reverse_rotate(&(*ctx)->a);
-	if (should_print)
-		write(1, "rra\n", 4);
-}
-
-void	rrb(t_context **ctx, int should_print)
-{
-	reverse_rotate(&(*ctx)->b);
-	if (should_print)
-		write(1, "rrb\n", 4);
-}
-
-void	rrr(t_context **ctx, int should_print)
-{
-	reverse_rotate(&(*ctx)->a);
-	reverse_rotate(&(*ctx)->b);
-	if (should_print)
-		write(1, "rrr\n", 4);
+	while (*s)
+	{
+		if (*s == (char)c)
+			return ((char *)s);
+		s++;
+	}
+	if (*s == (char)c)
+		return ((char *)s);
+	return (NULL);
 }
