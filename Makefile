@@ -6,7 +6,7 @@
 #    By: abezatog <abezatog@student.42istanbul.c    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/09/05 18:36:29 by abezatog          #+#    #+#              #
-#    Updated: 2026/09/10 09:46:05 by abezatog         ###   ########.fr        #
+#    Updated: 2026/09/10 14:05:59 by abezatog         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ LIBFT = $(LIBFT_DIR)/libft.a
 CFLAGS = -Wall -Wextra -Werror
 
 SRCS = push_swap.c ft_ctxnew.c ft_ctxclear.c ft_parser.c \
-	   ft_compute_disorder.c
+	   ft_compute_disorder.c ft_operations_core.c
 OBJS = $(SRCS:.c=.o)
 
 all: $(NAME)
