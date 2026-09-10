@@ -6,7 +6,7 @@
 /*   By: abezatog <abezatog@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/09 22:35:10 by abezatog          #+#    #+#             */
-/*   Updated: 2026/09/09 23:55:28 by abezatog         ###   ########.fr       */
+/*   Updated: 2026/09/10 08:50:49 by abezatog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,8 @@ static int	ft_isnumber(char *val)
 {
 	if (*val == '-' || *val == '+')
 		val++;
+	if (*val == '\0')
+		return (0);
 	while (*val)
 	{
 		if (!ft_isdigit(*val))
