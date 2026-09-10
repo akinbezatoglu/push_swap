@@ -6,7 +6,7 @@
 /*   By: abezatog <abezatog@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/05 17:30:55 by abezatog          #+#    #+#             */
-/*   Updated: 2026/09/10 14:21:40 by abezatog         ###   ########.fr       */
+/*   Updated: 2026/09/10 15:03:47 by abezatog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,5 +40,6 @@ float		ft_compute_disorder(t_list *a);
 t_strategy	ft_strategy_determination(float disorder);
 
 void		swap(t_list **lst);
+void		push(t_list **src, t_list **dst);
 
 #endif

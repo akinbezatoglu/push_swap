@@ -6,7 +6,7 @@
 /*   By: abezatog <abezatog@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/05 17:18:42 by abezatog          #+#    #+#             */
-/*   Updated: 2026/09/10 14:21:34 by abezatog         ###   ########.fr       */
+/*   Updated: 2026/09/10 15:04:32 by abezatog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,22 @@
 
 static void	ft_print(t_context *ctx)
 {
-	t_list	*tmp;
+	t_list	*stack_a;
+	t_list	*stack_b;
 
-	tmp = ctx->a;
-	while (tmp)
+	stack_a = ctx->a;
+	stack_b = ctx->b;
+	while (stack_a)
 	{
-		printf("%d\n", *(int *)tmp->content);
-		tmp = tmp->next;
+		printf("Stack A:\n");
+		printf("%d\n", *(int *)stack_a->content);
+		stack_a = stack_a->next;
+	}
+	while (stack_b)
+	{
+		printf("Stack B:\n");
+		printf("%d\n", *(int *)stack_b->content);
+		stack_b = stack_b->next;
 	}
 	printf("bench:[%d]\n", ctx->bench);
 	printf("strategy:[%u]\n", ctx->strategy);
@@ -44,6 +53,7 @@ int	main(int argc, char **argv)
 	if (!ctx)
 		return (write_error());
 	swap(&ctx->a);
+	push(&ctx->a, &ctx->b);
 	ft_print(ctx);
 	ft_ctxclear(&ctx, free);
 	return (0);
