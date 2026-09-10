@@ -6,7 +6,7 @@
 /*   By: abezatog <abezatog@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/05 17:18:42 by abezatog          #+#    #+#             */
-/*   Updated: 2026/09/10 15:04:32 by abezatog         ###   ########.fr       */
+/*   Updated: 2026/09/10 15:23:10 by abezatog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ int	main(int argc, char **argv)
 		return (write_error());
 	swap(&ctx->a);
 	push(&ctx->a, &ctx->b);
+	rotate(&ctx->a);
 	ft_print(ctx);
 	ft_ctxclear(&ctx, free);
 	return (0);

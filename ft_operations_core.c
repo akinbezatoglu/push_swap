@@ -6,7 +6,7 @@
 /*   By: abezatog <abezatog@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/10 13:56:11 by abezatog          #+#    #+#             */
-/*   Updated: 2026/09/10 15:02:04 by abezatog         ###   ########.fr       */
+/*   Updated: 2026/09/10 15:22:21 by abezatog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,4 +35,18 @@ void	push(t_list **src, t_list **dst)
 	to_be_first = (*src)->next;
 	ft_lstadd_front(dst, *src);
 	*src = to_be_first;
+}
+
+void	rotate(t_list **lst)
+{
+	t_list	*to_be_first;
+	t_list	*to_be_last;
+
+	if (!lst || !*lst || !(*lst)->next)
+		return ;
+	to_be_first = (*lst)->next;
+	to_be_last = *lst;
+	(*lst)->next = NULL;
+	ft_lstadd_back(&to_be_first, to_be_last);
+	*lst = to_be_first;
 }
