@@ -6,7 +6,7 @@
 #    By: abezatog <abezatog@student.42istanbul.c    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/09/05 18:36:29 by abezatog          #+#    #+#              #
-#    Updated: 2026/09/10 22:49:40 by abezatog         ###   ########.fr        #
+#    Updated: 2026/09/12 14:43:27 by abezatog         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,10 +38,10 @@ $(LIBFT):
 	$(MAKE) -C $(LIBFT_DIR)
 
 $(NAME): $(LIBFT) $(OBJS) $(COMMONOBJS)
-	$(CC) $(CFLAGS) $(LIBFT) $(OBJS) $(COMMONOBJS) -o $(NAME)
+	$(CC) $(CFLAGS) $(OBJS) $(COMMONOBJS) $(LIBFT) -o $(NAME)
 
 $(BNSNAME): $(LIBFT) $(BNSOBJS) $(COMMONOBJS)
-	$(CC) $(CFLAGS) $(LIBFT) $(BNSOBJS) $(COMMONOBJS) -o $(BNSNAME)
+	$(CC) $(CFLAGS) $(BNSOBJS) $(COMMONOBJS) $(LIBFT) -o $(BNSNAME)
 
 clean:
 	$(RM) $(OBJS) $(COMMONOBJS) $(BNSOBJS)
