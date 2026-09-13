@@ -6,7 +6,7 @@
 /*   By: abezatog <abezatog@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/05 11:16:03 by abezatog          #+#    #+#             */
-/*   Updated: 2026/09/10 18:27:12 by abezatog         ###   ########.fr       */
+/*   Updated: 2026/09/13 11:04:15 by abezatog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ int				ft_strncmp(const char *s1, const char *s2, size_t n);
 int				ft_atoi(const char *nptr);
 size_t			ft_strlen(const char *s);
 char			*ft_strchr(const char *s, int c);
+char			**ft_split(char const *s, char c);
+size_t			ft_strlcpy(char *dst, const char *src, size_t size);
 
 t_list			*ft_lstnew(void *content);
 void			ft_lstadd_front(t_list **lst, t_list *new);

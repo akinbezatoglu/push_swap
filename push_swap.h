@@ -6,7 +6,7 @@
 /*   By: abezatog <abezatog@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/05 17:30:55 by abezatog          #+#    #+#             */
-/*   Updated: 2026/09/10 21:56:10 by abezatog         ###   ########.fr       */
+/*   Updated: 2026/09/13 11:08:29 by abezatog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ typedef struct s_context
 t_context	*ft_ctxnew(void);
 void		ft_ctxclear(t_context **ctx, void (*del)(void *));
 t_context	*ft_parser(char **argv);
+t_list		*ft_parse_numbers(char **argv);
 float		ft_compute_disorder(t_list *a);
 t_strategy	ft_strategy_determination(float disorder);
 

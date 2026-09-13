@@ -6,7 +6,7 @@
 /*   By: abezatog <abezatog@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/09 22:35:10 by abezatog          #+#    #+#             */
-/*   Updated: 2026/09/10 10:05:26 by abezatog         ###   ########.fr       */
+/*   Updated: 2026/09/13 11:07:03 by abezatog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,45 +38,6 @@ static int	ft_parse_strategy_flag(char *arg, t_context *ctx)
 	else
 		return (0);
 	return (1);
-}
-
-static int	ft_isnumber(char *val)
-{
-	if (*val == '-' || *val == '+')
-		val++;
-	if (*val == '\0')
-		return (0);
-	while (*val)
-	{
-		if (!ft_isdigit(*val))
-			return (0);
-		val++;
-	}
-	return (1);
-}
-
-static t_list	*ft_parse_numbers(char **argv)
-{
-	t_list	*stack;
-	t_list	*new;
-	int		*nbr;
-
-	stack = NULL;
-	while (*argv)
-	{
-		if (!ft_isnumber(*argv))
-			return (NULL);
-		nbr = malloc(sizeof(int));
-		if (!nbr)
-			return (NULL);
-		*nbr = ft_atoi(*argv);
-		new = ft_lstnew(nbr);
-		if (!new)
-			return (NULL);
-		ft_lstadd_back(&stack, new);
-		argv++;
-	}
-	return (stack);
 }
 
 t_context	*ft_parser(char **argv)
