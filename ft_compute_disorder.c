@@ -6,21 +6,11 @@
 /*   By: abezatog <abezatog@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/10 09:24:22 by abezatog          #+#    #+#             */
-/*   Updated: 2026/09/10 09:59:29 by abezatog         ###   ########.fr       */
+/*   Updated: 2026/09/13 17:01:13 by abezatog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-t_strategy	ft_strategy_determination(float disorder)
-{
-	if (disorder < 0.2f)
-		return (SIMPLE);
-	else if (disorder < 0.5f)
-		return (MEDIUM);
-	else
-		return (COMPLEX);
-}
 
 float	ft_compute_disorder(t_list *a)
 {

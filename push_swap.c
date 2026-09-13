@@ -6,7 +6,7 @@
 /*   By: abezatog <abezatog@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/05 17:18:42 by abezatog          #+#    #+#             */
-/*   Updated: 2026/09/13 16:04:00 by abezatog         ###   ########.fr       */
+/*   Updated: 2026/09/13 16:41:23 by abezatog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,7 @@ int	main(int argc, char **argv)
 	pb(&ctx, 1);
 	ra(&ctx, 1);
 	rrb(&ctx, 1);
+	ft_solve(&ctx);
 	ft_print(ctx);
 	ft_ctxclear(&ctx, free);
 	return (0);

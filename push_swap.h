@@ -6,7 +6,7 @@
 /*   By: abezatog <abezatog@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/05 17:30:55 by abezatog          #+#    #+#             */
-/*   Updated: 2026/09/13 16:03:51 by abezatog         ###   ########.fr       */
+/*   Updated: 2026/09/13 17:04:23 by abezatog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,12 @@ void		ft_ctxclear(t_context **ctx, void (*del)(void *));
 t_context	*ft_parser(char **argv);
 t_list		*ft_parse_numbers(char **argv);
 float		ft_compute_disorder(t_list *a);
-t_strategy	ft_strategy_determination(float disorder);
+
+void		ft_simple_algorithm(t_context **context);
+void		ft_medium_algorithm(t_context **context);
+void		ft_complex_algorithm(t_context **context);
+void		ft_adaptive_algorithm(t_context **context);
+void		ft_solve(t_context **context);
 
 void		swap(t_list **lst);
 void		push(t_list **src, t_list **dst);
