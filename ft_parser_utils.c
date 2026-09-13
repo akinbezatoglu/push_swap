@@ -6,7 +6,7 @@
 /*   By: abezatog <abezatog@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/13 10:59:53 by abezatog          #+#    #+#             */
-/*   Updated: 2026/09/13 11:09:32 by abezatog         ###   ########.fr       */
+/*   Updated: 2026/09/13 16:20:49 by abezatog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ static int	ft_process_split(t_list **stack, char **splt)
 	int		i;
 
 	i = 0;
+	if (!splt[i])
+		return (0);
 	while (splt[i])
 	{
 		if (!ft_isnumber(splt[i]))
