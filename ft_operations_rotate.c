@@ -1,38 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_reverse_rotate_operations.c                     :+:      :+:    :+:   */
+/*   ft_operations_rotate.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abezatog <abezatog@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/09/10 15:59:45 by abezatog          #+#    #+#             */
-/*   Updated: 2026/09/13 15:58:03 by abezatog         ###   ########.fr       */
+/*   Created: 2026/09/10 15:55:49 by abezatog          #+#    #+#             */
+/*   Updated: 2026/09/13 16:29:24 by abezatog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	rra(t_context **ctx, int should_print)
+void	ra(t_context **ctx, int should_print)
 {
-	reverse_rotate(&(*ctx)->a);
-	(*ctx)->rra += 1;
+	rotate(&(*ctx)->a);
+	(*ctx)->ra += 1;
 	if (should_print)
-		write(1, "rra\n", 4);
+		write(1, "ra\n", 3);
 }
 
-void	rrb(t_context **ctx, int should_print)
+void	rb(t_context **ctx, int should_print)
 {
-	reverse_rotate(&(*ctx)->b);
-	(*ctx)->rrb += 1;
+	rotate(&(*ctx)->b);
+	(*ctx)->rb += 1;
 	if (should_print)
-		write(1, "rrb\n", 4);
+		write(1, "rb\n", 3);
 }
 
-void	rrr(t_context **ctx, int should_print)
+void	rr(t_context **ctx, int should_print)
 {
-	reverse_rotate(&(*ctx)->a);
-	reverse_rotate(&(*ctx)->b);
-	(*ctx)->rrr += 1;
+	rotate(&(*ctx)->a);
+	rotate(&(*ctx)->b);
+	(*ctx)->rr += 1;
 	if (should_print)
-		write(1, "rrr\n", 4);
+		write(1, "rr\n", 3);
 }
