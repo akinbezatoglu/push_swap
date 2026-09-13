@@ -6,7 +6,7 @@
 /*   By: abezatog <abezatog@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/10 15:59:45 by abezatog          #+#    #+#             */
-/*   Updated: 2026/09/10 21:56:10 by abezatog         ###   ########.fr       */
+/*   Updated: 2026/09/13 15:58:03 by abezatog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 void	rra(t_context **ctx, int should_print)
 {
 	reverse_rotate(&(*ctx)->a);
+	(*ctx)->rra += 1;
 	if (should_print)
 		write(1, "rra\n", 4);
 }
@@ -22,6 +23,7 @@ void	rra(t_context **ctx, int should_print)
 void	rrb(t_context **ctx, int should_print)
 {
 	reverse_rotate(&(*ctx)->b);
+	(*ctx)->rrb += 1;
 	if (should_print)
 		write(1, "rrb\n", 4);
 }
@@ -30,6 +32,7 @@ void	rrr(t_context **ctx, int should_print)
 {
 	reverse_rotate(&(*ctx)->a);
 	reverse_rotate(&(*ctx)->b);
+	(*ctx)->rrr += 1;
 	if (should_print)
 		write(1, "rrr\n", 4);
 }

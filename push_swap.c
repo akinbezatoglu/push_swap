@@ -6,7 +6,7 @@
 /*   By: abezatog <abezatog@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/05 17:18:42 by abezatog          #+#    #+#             */
-/*   Updated: 2026/09/10 18:54:09 by abezatog         ###   ########.fr       */
+/*   Updated: 2026/09/13 16:04:00 by abezatog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,10 @@ static void	ft_print(t_context *ctx)
 	printf("bench:[%d]\n", ctx->bench);
 	printf("strategy:[%u]\n", ctx->strategy);
 	printf("disorder:[%.2f]\n", ctx->disorder);
+	printf("[bench] sa: %d sb: %d ss: %d", ctx->sa, ctx->sb, ctx->ss);
+	printf(" pa: %d pb: %d\n", ctx->pa, ctx->pb);
+	printf("[bench] ra: %d rb: %d rr: %d", ctx->ra, ctx->rb, ctx->rr);
+	printf(" rra: %d rrb: %d rrr: %d", ctx->rra, ctx->rrb, ctx->rrr);
 }
 
 static int	write_error(void)
