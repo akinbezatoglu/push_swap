@@ -6,7 +6,7 @@
 #    By: abezatog <abezatog@student.42istanbul.c    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/09/05 18:36:29 by abezatog          #+#    #+#              #
-#    Updated: 2026/09/14 00:42:20 by abezatog         ###   ########.fr        #
+#    Updated: 2026/09/14 14:52:53 by abezatog         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,7 @@ COMMONSRCS = ft_ctxnew.c ft_ctxclear.c ft_parser.c ft_parser_utils.c \
 			 ft_operations_core.c ft_operations_swap.c \
 			 ft_operations_push.c ft_operations_rotate.c \
 			 ft_operations_reverse_rotate.c ft_compute_disorder.c \
-			 ft_solve.c
+			 ft_sort.c
 COMMONOBJS = $(COMMONSRCS:.c=.o)
 
 BNSSRCS = checker_bonus.c

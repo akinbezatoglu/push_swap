@@ -6,7 +6,7 @@
 /*   By: abezatog <abezatog@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/05 17:30:55 by abezatog          #+#    #+#             */
-/*   Updated: 2026/09/14 00:06:16 by abezatog         ###   ########.fr       */
+/*   Updated: 2026/09/14 14:53:54 by abezatog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,11 +51,11 @@ t_context	*ft_parser(char **argv);
 t_list		*ft_parse_numbers(char **argv);
 float		ft_compute_disorder(t_list *a);
 
-void		ft_simple_algorithm(t_context **context);
-void		ft_medium_algorithm(t_context **context);
-void		ft_complex_algorithm(t_context **context);
-void		ft_adaptive_algorithm(t_context **context);
-void		ft_solve(t_context **context);
+void		ft_simple_algorithm(t_context **context, int should_print);
+void		ft_medium_algorithm(t_context **context, int should_print);
+void		ft_complex_algorithm(t_context **context, int should_print);
+void		ft_adaptive_algorithm(t_context **context, int should_print);
+void		ft_sort(t_context **context, int should_print);
 
 void		swap(t_list **lst);
 void		push(t_list **src, t_list **dst);

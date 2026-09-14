@@ -6,7 +6,7 @@
 /*   By: abezatog <abezatog@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/05 17:18:42 by abezatog          #+#    #+#             */
-/*   Updated: 2026/09/14 00:39:09 by abezatog         ###   ########.fr       */
+/*   Updated: 2026/09/14 14:27:04 by abezatog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,9 +79,13 @@ int	main(int argc, char **argv)
 	ctx = ft_parser(argv);
 	if (!ctx)
 		return (write_error());
-	ft_solve(&ctx);
 	if (ctx->bench)
+	{
+		ft_sort(&ctx, 0);
 		ft_benchmark(ctx);
+	}
+	else
+		ft_sort(&ctx, 1);
 	ft_ctxclear(&ctx, free);
 	return (0);
 }
