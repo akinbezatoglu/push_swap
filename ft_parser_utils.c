@@ -6,7 +6,7 @@
 /*   By: abezatog <abezatog@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/13 10:59:53 by abezatog          #+#    #+#             */
-/*   Updated: 2026/09/13 23:33:29 by abezatog         ###   ########.fr       */
+/*   Updated: 2026/09/14 15:47:58 by abezatog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,9 +108,15 @@ t_list	*ft_parse_numbers(char **argv)
 	{
 		splt = ft_split(*argv++, ' ');
 		if (!splt)
+		{
+			ft_lstclear(&stack, free);
 			return (NULL);
+		}
 		if (!ft_process_split(&stack, splt))
+		{
+			ft_lstclear(&stack, free);
 			return (NULL);
+		}
 		free(splt);
 	}
 	return (stack);
