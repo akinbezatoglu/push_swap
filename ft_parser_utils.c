@@ -6,45 +6,31 @@
 /*   By: abezatog <abezatog@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/13 10:59:53 by abezatog          #+#    #+#             */
-/*   Updated: 2026/09/14 15:47:58 by abezatog         ###   ########.fr       */
+/*   Updated: 2026/09/15 23:33:28 by abezatog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static long	ft_atol(const char *nptr)
-{
-	long	result;
-	int		sign;
-
-	result = 0;
-	sign = 1;
-	while (*nptr == ' ' || (*nptr >= 9 && *nptr <= 13))
-		nptr++;
-	if (*nptr == '-' || *nptr == '+')
-	{
-		if (*nptr == '-')
-			sign = -1;
-		nptr++;
-	}
-	while (*nptr >= '0' && *nptr <= '9')
-	{
-		result = result * 10 + (*nptr - '0');
-		nptr++;
-	}
-	return (sign * result);
-}
-
 static int	ft_isnumber(char *val)
 {
-	long	tmp_num;
+	size_t	len;
+	char	sign;
 
+	sign = '+';
 	if (*val == '-' || *val == '+')
+	{
+		sign = *val;
 		val++;
+	}
 	if (*val == '\0')
 		return (0);
-	tmp_num = ft_atol(val);
-	if (tmp_num > 2147483647 || tmp_num < -2147483648)
+	len = ft_strlen(val);
+	if (len > 10)
+		return (0);
+	if (len == 10 && sign == '-' && ft_strncmp(val, "2147483648", 10) > 0)
+		return (0);
+	if (len == 10 && sign == '+' && ft_strncmp(val, "2147483647", 10) > 0)
 		return (0);
 	while (*val)
 	{
