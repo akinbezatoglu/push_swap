@@ -1,20 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checker_bonus.h                                    :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abezatog <abezatog@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/09/10 17:09:51 by abezatog          #+#    #+#             */
-/*   Updated: 2026/09/16 23:32:50 by abezatog         ###   ########.fr       */
+/*   Created: 2026/08/12 19:20:34 by abezatog          #+#    #+#             */
+/*   Updated: 2026/08/15 00:35:28 by abezatog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CHECKER_BONUS_H
-# define CHECKER_BONUS_H
+#include "libft.h"
 
-# include "push_swap.h"
+char	*ft_strdup(const char *s)
+{
+	size_t	i;
+	size_t	len;
+	char	*ptr;
 
-char	*get_next_line(int fd);
-
-#endif
+	len = ft_strlen(s);
+	ptr = (char *)malloc((len + 1) * sizeof(char));
+	if (!ptr)
+		return (NULL);
+	i = 0;
+	while (s[i])
+	{
+		ptr[i] = s[i];
+		i++;
+	}
+	ptr[i] = '\0';
+	return (ptr);
+}

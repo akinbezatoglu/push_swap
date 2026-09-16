@@ -6,7 +6,7 @@
 /*   By: abezatog <abezatog@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/10 17:09:39 by abezatog          #+#    #+#             */
-/*   Updated: 2026/09/10 22:39:18 by abezatog         ###   ########.fr       */
+/*   Updated: 2026/09/16 23:53:15 by abezatog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,26 +41,23 @@ static int	ft_map_operations(char *op, t_context **ctx)
 	return (1);
 }
 
-static char	*ft_read_stdin(void)
+static int	ft_process_operations(t_context **ctx)
 {
-	char	*buffer;
-	ssize_t	bytes;
+	char	*line;
 
-	buffer = (char *)malloc(5 * sizeof(char));
-	if (!buffer)
-		return (NULL);
-	bytes = 1;
-	while (bytes > 0 && !ft_strchr(buffer, '\n'))
+	while (1)
 	{
-		bytes = read(0, buffer, 4);
-		if (bytes == -1 || bytes == 0)
+		line = get_next_line(0);
+		if (!line)
+			break ;
+		if (ft_map_operations(line, ctx) == 0)
 		{
-			free(buffer);
-			return (NULL);
+			free(line);
+			return (0);
 		}
-		buffer[bytes] = '\0';
+		free(line);
 	}
-	return (buffer);
+	return (1);
 }
 
 static int	write_error(t_context **ctx)
@@ -74,24 +71,14 @@ static int	write_error(t_context **ctx)
 int	main(int argc, char **argv)
 {
 	t_context	*ctx;
-	char		*op;
 
 	if (argc < 2)
 		return (0);
 	ctx = ft_parser(++argv);
 	if (!ctx)
 		return (write_error(NULL));
-	while (1)
-	{
-		op = ft_read_stdin();
-		if (!op)
-			break ;
-		if (ft_map_operations(op, &ctx) == 0)
-		{
-			free(op);
-			return (write_error(&ctx));
-		}
-	}
+	if (!ft_process_operations(&ctx))
+		return (write_error(&ctx));
 	if (ft_compute_disorder(ctx->a) == 0.0f && ctx->b == NULL)
 		write(1, "OK\n", 3);
 	else

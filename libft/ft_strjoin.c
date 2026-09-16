@@ -1,20 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checker_bonus.h                                    :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abezatog <abezatog@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/09/10 17:09:51 by abezatog          #+#    #+#             */
-/*   Updated: 2026/09/16 23:32:50 by abezatog         ###   ########.fr       */
+/*   Created: 2026/08/12 20:00:44 by abezatog          #+#    #+#             */
+/*   Updated: 2026/08/15 14:20:38 by abezatog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CHECKER_BONUS_H
-# define CHECKER_BONUS_H
+#include "libft.h"
 
-# include "push_swap.h"
+char	*ft_strjoin(char const *s1, char const *s2)
+{
+	char	*str;
+	size_t	len;
 
-char	*get_next_line(int fd);
-
-#endif
+	if (!s1 || !s2)
+		return (NULL);
+	len = ft_strlen(s1) + ft_strlen(s2);
+	str = (char *)malloc((len + 1) * sizeof(char));
+	if (!str)
+		return (NULL);
+	while (*s1)
+	{
+		*str = *s1;
+		s1++;
+		str++;
+	}
+	while (*s2)
+	{
+		*str = *s2;
+		s2++;
+		str++;
+	}
+	*str = '\0';
+	return (str - len);
+}

@@ -6,7 +6,7 @@
 #    By: abezatog <abezatog@student.42istanbul.c    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/09/05 18:36:29 by abezatog          #+#    #+#              #
-#    Updated: 2026/09/14 14:52:53 by abezatog         ###   ########.fr        #
+#    Updated: 2026/09/20 09:39:41 by abezatog         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,7 +31,7 @@ COMMONSRCS = ft_ctxnew.c ft_ctxclear.c ft_parser.c ft_parser_utils.c \
 			 ft_sort.c
 COMMONOBJS = $(COMMONSRCS:.c=.o)
 
-BNSSRCS = checker_bonus.c
+BNSSRCS = checker_bonus.c checker_gnl_bonus.c
 BNSOBJS = $(BNSSRCS:.c=.o)
 
 all: $(NAME)
