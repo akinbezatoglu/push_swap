@@ -6,7 +6,7 @@
 /*   By: abezatog <abezatog@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/05 17:18:42 by abezatog          #+#    #+#             */
-/*   Updated: 2026/09/14 14:27:04 by abezatog         ###   ########.fr       */
+/*   Updated: 2026/09/16 18:58:44 by abezatog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,13 +34,13 @@ static int	ft_total_ops(t_context *ctx)
 static void	print_strategy(t_context *ctx)
 {
 	if (ctx->strategy == ADAPTIVE && ctx->disorder < 0.2f)
-		ft_printf("[bench] strategy: Adaptive / O(n^2)\n");
+		ft_printf("[bench] strategy: Adaptive / O(n²)\n");
 	else if (ctx->strategy == ADAPTIVE && ctx->disorder < 0.5f)
 		ft_printf("[bench] strategy: Adaptive / O(n√n)\n");
 	else if (ctx->strategy == ADAPTIVE)
 		ft_printf("[bench] strategy: Adaptive / O(nlogn)\n");
 	else if (ctx->strategy == SIMPLE)
-		ft_printf("[bench] strategy: Simple / O(n^2)\n");
+		ft_printf("[bench] strategy: Simple / O(n²)\n");
 	else if (ctx->strategy == MEDIUM)
 		ft_printf("[bench] strategy: Medium / O(n√n)\n");
 	else if (ctx->strategy == COMPLEX)
