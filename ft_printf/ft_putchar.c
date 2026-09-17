@@ -6,7 +6,7 @@
 /*   By: abezatog <abezatog@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/27 20:29:44 by abezatog          #+#    #+#             */
-/*   Updated: 2026/08/31 19:00:06 by abezatog         ###   ########.fr       */
+/*   Updated: 2026/09/17 22:34:23 by abezatog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,6 @@
 
 void	ft_putchar(int c, int *len)
 {
-	write(1, &c, 1);
+	write(2, &c, 1);
 	*len += 1;
 }
