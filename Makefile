@@ -6,7 +6,7 @@
 #    By: abezatog <abezatog@student.42istanbul.c    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/09/05 18:36:29 by abezatog          #+#    #+#              #
-#    Updated: 2026/09/20 09:39:41 by abezatog         ###   ########.fr        #
+#    Updated: 2026/09/20 09:40:03 by abezatog         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,7 +42,7 @@ $(LIBFT):
 	$(MAKE) -C $(LIBFT_DIR)
 
 $(FT_PRINTF):
-	$(MAKE) -C $(FT_PRINTF_DIR) bonus
+	$(MAKE) -C $(FT_PRINTF_DIR)
 
 $(NAME): $(LIBFT) $(FT_PRINTF) $(OBJS) $(COMMONOBJS)
 	$(CC) $(CFLAGS) $(OBJS) $(COMMONOBJS) $(LIBFT) $(FT_PRINTF) -o $(NAME)

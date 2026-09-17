@@ -6,7 +6,7 @@
 /*   By: abezatog <abezatog@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/10 09:24:22 by abezatog          #+#    #+#             */
-/*   Updated: 2026/09/14 01:00:12 by abezatog         ###   ########.fr       */
+/*   Updated: 2026/09/17 19:20:03 by abezatog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,5 +34,5 @@ float	ft_compute_disorder(t_list *a)
 	}
 	if (total_pairs == 0.0f)
 		return (0.0f);
-	return (mistakes / total_pairs * 100.f);
+	return (mistakes / total_pairs);
 }

@@ -6,7 +6,7 @@
 /*   By: abezatog <abezatog@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/05 17:18:42 by abezatog          #+#    #+#             */
-/*   Updated: 2026/09/16 18:58:44 by abezatog         ###   ########.fr       */
+/*   Updated: 2026/09/17 19:48:28 by abezatog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,33 +34,35 @@ static int	ft_total_ops(t_context *ctx)
 static void	print_strategy(t_context *ctx)
 {
 	if (ctx->strategy == ADAPTIVE && ctx->disorder < 0.2f)
-		ft_printf("[bench] strategy: Adaptive / O(n²)\n");
+		ft_printf("[bench] strategy:  Adaptive / O(n²)\n");
 	else if (ctx->strategy == ADAPTIVE && ctx->disorder < 0.5f)
-		ft_printf("[bench] strategy: Adaptive / O(n√n)\n");
+		ft_printf("[bench] strategy:  Adaptive / O(n√n)\n");
 	else if (ctx->strategy == ADAPTIVE)
-		ft_printf("[bench] strategy: Adaptive / O(nlogn)\n");
+		ft_printf("[bench] strategy:  Adaptive / O(nlogn)\n");
 	else if (ctx->strategy == SIMPLE)
-		ft_printf("[bench] strategy: Simple / O(n²)\n");
+		ft_printf("[bench] strategy:  Simple / O(n²)\n");
 	else if (ctx->strategy == MEDIUM)
-		ft_printf("[bench] strategy: Medium / O(n√n)\n");
+		ft_printf("[bench] strategy:  Medium / O(n√n)\n");
 	else if (ctx->strategy == COMPLEX)
-		ft_printf("[bench] strategy: Complex / O(nlogn)\n");
+		ft_printf("[bench] strategy:  Complex / O(nlogn)\n");
 }
 
 static void	ft_benchmark(t_context *ctx)
 {
-	int	whole;
-	int	decimal;
+	float	disorder;
+	int		whole;
+	int		decimal;
 
-	whole = (int)ctx->disorder;
-	decimal = (int)((ctx->disorder - whole) * 100);
-	ft_printf("[bench] disorder: %d.%02d%%\n", whole, decimal);
+	disorder = ctx->disorder * 100.f;
+	whole = (int)disorder;
+	decimal = (int)((disorder - whole) * 100.f);
+	ft_printf("[bench] disorder:  %d.%d%%\n", whole, decimal);
 	print_strategy(ctx);
-	ft_printf("[bench] total_ops: %d\n", ft_total_ops(ctx));
-	ft_printf("[bench] sa: %d sb: %d ss: %d", ctx->sa, ctx->sb, ctx->ss);
-	ft_printf(" pa: %d pb: %d\n", ctx->pa, ctx->pb);
-	ft_printf("[bench] ra: %d rb: %d rr: %d", ctx->ra, ctx->rb, ctx->rr);
-	ft_printf(" rra: %d rrb: %d rrr: %d\n", ctx->rra, ctx->rrb, ctx->rrr);
+	ft_printf("[bench] total_ops:  %d\n", ft_total_ops(ctx));
+	ft_printf("[bench] sa:  %d  sb:  %d  ss:  %d  ", ctx->sa, ctx->sb, ctx->ss);
+	ft_printf("pa:  %d  pb:  %d \n", ctx->pa, ctx->pb);
+	ft_printf("[bench] ra:  %d  rb:  %d  rr:  %d ", ctx->ra, ctx->rb, ctx->rr);
+	ft_printf(" rra:  %d  rrb:  %d  rrr:  %d \n", ctx->rra, ctx->rrb, ctx->rrr);
 }
 
 static int	write_error(void)
