@@ -6,7 +6,7 @@
 /*   By: abezatog <abezatog@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/05 17:18:42 by abezatog          #+#    #+#             */
-/*   Updated: 2026/09/17 19:48:28 by abezatog         ###   ########.fr       */
+/*   Updated: 2026/09/20 09:41:15 by abezatog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ int	main(int argc, char **argv)
 	t_context	*ctx;
 
 	if (argc < 2)
-		return (write_error());
+		return (0);
 	argv++;
 	ctx = ft_parser(argv);
 	if (!ctx)
