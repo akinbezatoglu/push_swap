@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abezatog <abezatog@student.42istanbul.c    +#+  +:+       +#+        */
+/*   By: yturkeri <yturkeri@student.42istanbul.com.tr>+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/05 17:30:55 by abezatog          #+#    #+#             */
-/*   Updated: 2026/09/20 09:43:39 by abezatog         ###   ########.fr       */
+/*   Updated: 2026/09/20 19:46:29 by yturkeri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,11 +52,16 @@ t_context	*ft_parser(char **argv);
 t_list		*ft_parse_numbers(char **argv);
 float		ft_compute_disorder(t_list *a);
 
-void		ft_simple_algorithm(t_context **context);
-void		ft_medium_algorithm(t_context **context);
-void		ft_complex_algorithm(t_context **context);
-void		ft_adaptive_algorithm(t_context **context);
-void		ft_sort(t_context **context);
+void		ft_sort(t_context **ctx);
+void		ft_sort_three(t_context **ctx);
+void		ft_sort_five(t_context **ctx);
+void		ft_sort_simple_algorithm(t_context **ctx);
+void		ft_sort_medium_algorithm(t_context **ctx);
+void		ft_sort_complex_algorithm(t_context **ctx);
+void		ft_sort_adaptive_algorithm(t_context **ctx);
+
+size_t		ft_find_max(t_list *stack);
+size_t		ft_find_min(t_list *stack);
 
 void		swap(t_list **lst);
 void		push(t_list **src, t_list **dst);

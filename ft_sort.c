@@ -12,39 +12,74 @@
 
 #include "push_swap.h"
 
-void	ft_simple_algorithm(t_context **context)
+void	ft_sort_three(t_context **ctx)
 {
-	printf("simple: %u\n", (*context)->strategy);
+	size_t	max_idx;
+
+	max_idx = ft_find_max((*ctx)->a);
+	if (max_idx == 0)
+		ra(ctx);
+	else if (max_idx == 1)
+		rra(ctx);
+	if (*(int *)(*ctx)->a->content > *(int *)(*ctx)->a->next->content)
+		sa(ctx);
 }
 
-void	ft_medium_algorithm(t_context **context)
+void	ft_sort_five(t_context **ctx)
 {
-	printf("medium: %u\n", (*context)->strategy);
+	size_t	size;
+	size_t	min_idx;
+
+	size = ft_lstsize((*ctx)->a);
+	while (size > 3)
+	{
+		min_idx = ft_find_min((*ctx)->a);
+		if (min_idx <= size / 2)
+		{
+			while (min_idx--)
+				ra(ctx);
+		}
+		else
+		{
+			min_idx = size - min_idx;
+			while (min_idx--)
+				rra(ctx);
+		}
+		pb(ctx);
+		size--;
+	}
+	ft_sort_three(ctx);
+	while ((*ctx)->b)
+		pa(ctx);
 }
 
-void	ft_complex_algorithm(t_context **context)
+void	ft_sort_adaptive_algorithm(t_context **ctx)
 {
-	printf("complex: %u\n", (*context)->strategy);
-}
-
-void	ft_adaptive_algorithm(t_context **context)
-{
-	if ((*context)->disorder < 0.2f)
-		ft_simple_algorithm(context);
-	else if ((*context)->disorder < 0.5f)
-		ft_medium_algorithm(context);
+	if ((*ctx)->disorder < 0.2f)
+		ft_sort_simple_algorithm(ctx);
+	else if ((*ctx)->disorder < 0.5f)
+		ft_sort_medium_algorithm(ctx);
 	else
-		ft_complex_algorithm(context);
+		ft_sort_complex_algorithm(ctx);
 }
 
-void	ft_sort(t_context **context)
+void	ft_sort(t_context **ctx)
 {
-	if ((*context)->strategy == SIMPLE)
-		ft_simple_algorithm(context);
-	else if ((*context)->strategy == MEDIUM)
-		ft_medium_algorithm(context);
-	else if ((*context)->strategy == COMPLEX)
-		ft_complex_algorithm(context);
+	size_t	size;
+
+	size = ft_lstsize((*ctx)->a);
+	if (size == 2)
+		sa(ctx);
+	else if (size == 3)
+		ft_sort_three(ctx);
+	else if (size <= 5)
+		ft_sort_five(ctx);
+	else if ((*ctx)->strategy == SIMPLE)
+		ft_sort_simple_algorithm(ctx);
+	else if ((*ctx)->strategy == MEDIUM)
+		ft_sort_medium_algorithm(ctx);
+	else if ((*ctx)->strategy == COMPLEX)
+		ft_sort_complex_algorithm(ctx);
 	else
-		ft_adaptive_algorithm(context);
+		ft_sort_adaptive_algorithm(ctx);
 }

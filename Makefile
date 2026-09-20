@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: abezatog <abezatog@student.42istanbul.c    +#+  +:+       +#+         #
+#    By: yturkeri <yturkeri@student.42istanbul.com.tr>+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/09/05 18:36:29 by abezatog          #+#    #+#              #
-#    Updated: 2026/09/20 09:40:03 by abezatog         ###   ########.fr        #
+#    Updated: 2026/09/20 18:54:21 by yturkeri         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,8 @@ COMMONSRCS = ft_ctxnew.c ft_ctxclear.c ft_parser.c ft_parser_utils.c \
 			 ft_operations_core.c ft_operations_swap.c \
 			 ft_operations_push.c ft_operations_rotate.c \
 			 ft_operations_reverse_rotate.c ft_compute_disorder.c \
-			 ft_sort.c
+			 ft_sort.c ft_sort_simple_algorithm.c ft_sort_medium_algorithm.c \
+			 ft_sort_complex_algorithm.c ft_sort_utils.c
 COMMONOBJS = $(COMMONSRCS:.c=.o)
 
 BNSSRCS = checker_bonus.c checker_gnl_bonus.c
