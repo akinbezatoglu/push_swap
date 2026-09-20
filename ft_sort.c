@@ -12,39 +12,39 @@
 
 #include "push_swap.h"
 
-void	ft_simple_algorithm(t_context **context, int should_print)
+void	ft_simple_algorithm(t_context **context)
 {
-	printf("simple(%d): %u\n", should_print, (*context)->strategy);
+	printf("simple: %u\n", (*context)->strategy);
 }
 
-void	ft_medium_algorithm(t_context **context, int should_print)
+void	ft_medium_algorithm(t_context **context)
 {
-	printf("medium(%d): %u\n", should_print, (*context)->strategy);
+	printf("medium: %u\n", (*context)->strategy);
 }
 
-void	ft_complex_algorithm(t_context **context, int should_print)
+void	ft_complex_algorithm(t_context **context)
 {
-	printf("complex(%d): %u\n", should_print, (*context)->strategy);
+	printf("complex: %u\n", (*context)->strategy);
 }
 
-void	ft_adaptive_algorithm(t_context **context, int should_print)
+void	ft_adaptive_algorithm(t_context **context)
 {
 	if ((*context)->disorder < 0.2f)
-		ft_simple_algorithm(context, should_print);
+		ft_simple_algorithm(context);
 	else if ((*context)->disorder < 0.5f)
-		ft_medium_algorithm(context, should_print);
+		ft_medium_algorithm(context);
 	else
-		ft_complex_algorithm(context, should_print);
+		ft_complex_algorithm(context);
 }
 
-void	ft_sort(t_context **context, int should_print)
+void	ft_sort(t_context **context)
 {
 	if ((*context)->strategy == SIMPLE)
-		ft_simple_algorithm(context, should_print);
+		ft_simple_algorithm(context);
 	else if ((*context)->strategy == MEDIUM)
-		ft_medium_algorithm(context, should_print);
+		ft_medium_algorithm(context);
 	else if ((*context)->strategy == COMPLEX)
-		ft_complex_algorithm(context, should_print);
+		ft_complex_algorithm(context);
 	else
-		ft_adaptive_algorithm(context, should_print);
+		ft_adaptive_algorithm(context);
 }
