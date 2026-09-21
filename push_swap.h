@@ -6,14 +6,13 @@
 /*   By: yturkeri <yturkeri@student.42istanbul.com.tr>+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/05 17:30:55 by abezatog          #+#    #+#             */
-/*   Updated: 2026/09/20 20:49:59 by yturkeri         ###   ########.fr       */
+/*   Updated: 2026/09/21 18:34:55 by yturkeri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include <stdio.h>
 # include "libft/libft.h"
 # include "ft_printf/ft_printf.h"
 
@@ -65,6 +64,7 @@ size_t		ft_find_min(t_list *stack);
 size_t		ft_find_one(t_list *stack, int val);
 void		ft_rotate_one_first_b(t_context **ctx, size_t idx);
 void		ft_rotate_max_first_b(t_context **ctx);
+void		ft_assign_indexes(t_list *stack);
 
 void		swap(t_list **lst);
 void		push(t_list **src, t_list **dst);

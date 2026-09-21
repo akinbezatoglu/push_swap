@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abezatog <abezatog@student.42istanbul.c    +#+  +:+       +#+        */
+/*   By: yturkeri <yturkeri@student.42istanbul.com.tr>+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/05 11:16:03 by abezatog          #+#    #+#             */
-/*   Updated: 2026/09/20 09:39:25 by abezatog         ###   ########.fr       */
+/*   Updated: 2026/09/21 18:32:39 by yturkeri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 
 typedef struct s_list
 {
+	int				index;
 	void			*content;
 	struct s_list	*next;
 }					t_list;
