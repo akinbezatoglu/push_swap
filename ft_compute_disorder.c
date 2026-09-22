@@ -6,7 +6,7 @@
 /*   By: abezatog <abezatog@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/10 09:24:22 by abezatog          #+#    #+#             */
-/*   Updated: 2026/09/17 19:20:03 by abezatog         ###   ########.fr       */
+/*   Updated: 2026/09/22 14:29:36 by abezatog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ float	ft_compute_disorder(t_list *a)
 		while (next_node)
 		{
 			total_pairs += 1.0f;
-			if (*(int *)a->content > *(int *)next_node->content)
+			if (a->index > next_node->index)
 				mistakes += 1.0f;
 			next_node = next_node->next;
 		}

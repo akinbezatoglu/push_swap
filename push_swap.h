@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yturkeri <yturkeri@student.42istanbul.com.tr>+  +:+       +#+        */
+/*   By: abezatog <abezatog@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/05 17:30:55 by abezatog          #+#    #+#             */
-/*   Updated: 2026/09/21 18:34:55 by yturkeri         ###   ########.fr       */
+/*   Updated: 2026/09/22 14:25:29 by abezatog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ t_context	*ft_ctxnew(void);
 void		ft_ctxclear(t_context **ctx, void (*del)(void *));
 t_context	*ft_parser(char **argv);
 t_list		*ft_parse_numbers(char **argv);
+void		ft_assign_indexes(t_list *stack);
 float		ft_compute_disorder(t_list *a);
 
 void		ft_sort(t_context **ctx);
@@ -59,12 +60,11 @@ void		ft_sort_medium_algorithm(t_context **ctx);
 void		ft_sort_complex_algorithm(t_context **ctx);
 void		ft_sort_adaptive_algorithm(t_context **ctx);
 
-size_t		ft_find_max(t_list *stack);
-size_t		ft_find_min(t_list *stack);
-size_t		ft_find_one(t_list *stack, int val);
-void		ft_rotate_one_first_b(t_context **ctx, size_t idx);
-void		ft_rotate_max_first_b(t_context **ctx);
-void		ft_assign_indexes(t_list *stack);
+int			ft_find_min_pos(t_list *stack);
+int			ft_get_target_pos(t_list *stack, int target_idx);
+void		ft_rotate_a_target_pos_to_first(t_context **ctx, int target_pos);
+void		ft_rotate_b_target_pos_to_first(t_context **ctx, int target_pos);
+void		ft_rotate_b_max_to_first(t_context **ctx);
 
 void		swap(t_list **lst);
 void		push(t_list **src, t_list **dst);

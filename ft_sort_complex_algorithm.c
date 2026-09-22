@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_sort_complex_algorithm.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yturkeri <yturkeri@student.42istanbul.com.tr>+  +:+       +#+        */
+/*   By: abezatog <abezatog@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/20 18:28:45 by yturkeri          #+#    #+#             */
-/*   Updated: 2026/09/21 20:31:33 by yturkeri         ###   ########.fr       */
+/*   Updated: 2026/09/22 14:09:17 by abezatog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ void	ft_sort_complex_algorithm(t_context **ctx)
 	int	i;
 	int	j;
 
-	ft_assign_indexes((*ctx)->a);
 	size = ft_lstsize((*ctx)->a);
 	max_bits = 0;
 	while (((size - 1) >> max_bits) != 0)

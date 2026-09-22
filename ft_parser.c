@@ -6,7 +6,7 @@
 /*   By: abezatog <abezatog@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/09 22:35:10 by abezatog          #+#    #+#             */
-/*   Updated: 2026/09/13 16:55:24 by abezatog         ###   ########.fr       */
+/*   Updated: 2026/09/22 14:28:25 by abezatog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,7 @@ t_context	*ft_parser(char **argv)
 		ft_ctxclear(&ctx, free);
 		return (NULL);
 	}
+	ft_assign_indexes(stack_a);
 	ctx->a = stack_a;
 	ctx->disorder = ft_compute_disorder(stack_a);
 	return (ctx);

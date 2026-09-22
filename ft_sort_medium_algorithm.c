@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_sort_medium_algorithm.c                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yturkeri <yturkeri@student.42istanbul.com.tr>+  +:+       +#+        */
+/*   By: abezatog <abezatog@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/20 18:28:10 by yturkeri          #+#    #+#             */
-/*   Updated: 2026/09/21 18:46:44 by yturkeri         ###   ########.fr       */
+/*   Updated: 2026/09/22 14:09:23 by abezatog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,30 +28,8 @@ static void	ft_sort_b_to_a(t_context **ctx)
 {
 	while ((*ctx)->b)
 	{
-		ft_rotate_max_first_b(ctx);
+		ft_rotate_b_max_to_first(ctx);
 		pa(ctx);
-	}
-}
-
-void	ft_assign_indexes(t_list *stack)
-{
-	t_list	*current_node;
-	t_list	*first_node;
-	int		index;
-
-	current_node = stack;
-	while (current_node)
-	{
-		index = 0;
-		first_node = stack;
-		while (first_node)
-		{
-			if (*(int *)first_node->content < *(int *)current_node->content)
-				index++;
-			first_node = first_node->next;
-		}
-		current_node->index = index;
-		current_node = current_node->next;
 	}
 }
 
@@ -63,7 +41,6 @@ void	ft_sort_medium_algorithm(t_context **ctx)
 
 	stack_size = ft_lstsize((*ctx)->a);
 	chunk_size = ft_sqrt(stack_size) * 1.5f;
-	ft_assign_indexes((*ctx)->a);
 	pushed = 0;
 	while ((*ctx)->a)
 	{

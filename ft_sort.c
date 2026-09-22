@@ -14,37 +14,27 @@
 
 void	ft_sort_three(t_context **ctx)
 {
-	size_t	max_idx;
+	int	max_pos;
 
-	max_idx = ft_find_max((*ctx)->a);
-	if (max_idx == 0)
+	max_pos = ft_get_target_pos((*ctx)->a, 2147483647);
+	if (max_pos == 0)
 		ra(ctx);
-	else if (max_idx == 1)
+	else if (max_pos == 1)
 		rra(ctx);
-	if (*(int *)(*ctx)->a->content > *(int *)(*ctx)->a->next->content)
+	if ((*ctx)->a->index > (*ctx)->a->next->index)
 		sa(ctx);
 }
 
 void	ft_sort_five(t_context **ctx)
 {
-	size_t	size;
-	size_t	min_idx;
+	int	size;
+	int	min_pos;
 
 	size = ft_lstsize((*ctx)->a);
 	while (size > 3)
 	{
-		min_idx = ft_find_min((*ctx)->a);
-		if (min_idx <= size / 2)
-		{
-			while (min_idx--)
-				ra(ctx);
-		}
-		else
-		{
-			min_idx = size - min_idx;
-			while (min_idx--)
-				rra(ctx);
-		}
+		min_pos = ft_find_min_pos((*ctx)->a);
+		ft_rotate_a_target_pos_to_first(ctx, min_pos);
 		pb(ctx);
 		size--;
 	}

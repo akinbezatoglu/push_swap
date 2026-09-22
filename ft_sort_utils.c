@@ -3,122 +3,105 @@
 /*                                                        :::      ::::::::   */
 /*   ft_sort_utils.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yturkeri <yturkeri@student.42istanbul.com.tr>+  +:+       +#+        */
+/*   By: abezatog <abezatog@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/20 18:37:21 by yturkeri          #+#    #+#             */
-/*   Updated: 2026/09/20 20:50:03 by yturkeri         ###   ########.fr       */
+/*   Updated: 2026/09/22 14:24:45 by abezatog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-size_t	ft_find_max(t_list *stack)
+int	ft_find_min_pos(t_list *stack)
 {
-	size_t	current_idx;
-	size_t	max_idx;
-	int		max_val;
+	int	current_pos;
+	int	min_pos;
+	int	min_idx;
 
-	current_idx = 0;
-	max_idx = 0;
-	max_val = *(int *)stack->content;
+	current_pos = 0;
+	min_pos = 0;
+	min_idx = stack->index;
 	while (stack)
 	{
-		if (*(int *)stack->content > max_val)
+		if (stack->index < min_idx)
 		{
-			max_val = *(int *)stack->content;
-			max_idx = current_idx;
+			min_idx = stack->index;
+			min_pos = current_pos;
 		}
-		current_idx++;
+		current_pos++;
 		stack = stack->next;
 	}
-	return (max_idx);
+	return (min_pos);
 }
 
-size_t	ft_find_min(t_list *stack)
+int	ft_get_target_pos(t_list *stack, int target_idx)
 {
-	size_t	current_idx;
-	size_t	min_idx;
-	int		min_val;
-
-	current_idx = 0;
-	min_idx = 0;
-	min_val = *(int *)stack->content;
-	while (stack)
-	{
-		if (*(int *)stack->content < min_val)
-		{
-			min_val = *(int *)stack->content;
-			min_idx = current_idx;
-		}
-		current_idx++;
-		stack = stack->next;
-	}
-	return (min_idx);
-}
-
-size_t	ft_find_one(t_list *stack, int val)
-{
-	long	closest_val;
-	size_t	current_idx;
-	size_t	found_idx;
+	int		closest_idx;
+	int		current_pos;
+	int		target_pos;
 	t_list	*stack_tmp;
 
-	closest_val = -2147483649;
-	current_idx = 0;
-	found_idx = 0;
+	closest_idx = -1;
+	target_pos = -1;
+	current_pos = 0;
 	stack_tmp = stack;
-	while (stack)
+	while (stack_tmp)
 	{
-		if (*(int *)stack->content < val
-			&& *(int *)stack->content > closest_val)
+		if (stack_tmp->index < target_idx
+			&& stack_tmp->index > closest_idx)
 		{
-			found_idx = current_idx;
-			closest_val = *(int *)stack->content;
+			closest_idx = stack_tmp->index;
+			target_pos = current_pos;
 		}
-		current_idx++;
-		stack = stack->next;
+		current_pos++;
+		stack_tmp = stack_tmp->next;
 	}
-	if (closest_val == -2147483649)
-		return (ft_find_max(stack_tmp));
-	return (found_idx);
+	if (target_pos == -1)
+		return (ft_get_target_pos(stack, 2147483647));
+	return (target_pos);
 }
 
-void	ft_rotate_one_first_b(t_context **ctx, size_t idx)
+void	ft_rotate_a_target_pos_to_first(t_context **ctx, int target_pos)
 {
-	size_t	stack_size;
+	int	stack_size;
+
+	stack_size = ft_lstsize((*ctx)->a);
+	if (target_pos <= stack_size / 2)
+	{
+		while (target_pos--)
+			ra(ctx);
+	}
+	else
+	{
+		target_pos = stack_size - target_pos;
+		while (target_pos--)
+			rra(ctx);
+	}
+}
+
+void	ft_rotate_b_target_pos_to_first(t_context **ctx, int target_pos)
+{
+	int	stack_size;
 
 	stack_size = ft_lstsize((*ctx)->b);
-	if (idx <= stack_size / 2)
+	if (target_pos <= stack_size / 2)
 	{
-		while (idx--)
+		while (target_pos--)
 			rb(ctx);
 	}
 	else
 	{
-		idx = stack_size - idx;
-		while (idx--)
+		target_pos = stack_size - target_pos;
+		while (target_pos--)
 			rrb(ctx);
 	}
 }
 
-void	ft_rotate_max_first_b(t_context **ctx)
+void	ft_rotate_b_max_to_first(t_context **ctx)
 {
-	size_t	max_idx;
-	size_t	stack_size;
+	int	max_pos;
 
-	max_idx = ft_find_max((*ctx)->b);
-	stack_size = ft_lstsize((*ctx)->b);
-	if (max_idx == 0)
-		return ;
-	if (max_idx <= stack_size / 2)
-	{
-		while (max_idx--)
-			rb(ctx);
-	}
-	else
-	{
-		max_idx = stack_size - max_idx;
-		while (max_idx--)
-			rrb(ctx);
-	}
+	max_pos = ft_get_target_pos((*ctx)->b, 2147483647);
+	if (max_pos > 0)
+		return (ft_rotate_b_target_pos_to_first(ctx, max_pos));
 }
