@@ -6,7 +6,7 @@
 /*   By: abezatog <abezatog@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/20 18:28:45 by yturkeri          #+#    #+#             */
-/*   Updated: 2026/09/22 21:03:31 by abezatog         ###   ########.fr       */
+/*   Updated: 2026/09/22 22:08:01 by abezatog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ static int	ft_partition_b_to_a(t_context **ctx, int size, int pivot)
 	return (pushed);
 }
 
-void	ft_quicksort_a(t_context **ctx, int size)
+void	ft_quicksort_a(t_context **ctx, int size, int min)
 {
 	int	pivot;
 	int	pushed;
@@ -76,13 +76,13 @@ void	ft_quicksort_a(t_context **ctx, int size)
 		ft_sort_small(ctx, size, 1);
 		return ;
 	}
-	pivot = ft_find_pivot((*ctx)->a, size);
+	pivot = min + (size / 2);
 	pushed = ft_partition_a_to_b(ctx, size, pivot);
-	ft_quicksort_a(ctx, size - pushed);
-	ft_quicksort_b(ctx, pushed);
+	ft_quicksort_a(ctx, size - pushed, pivot);
+	ft_quicksort_b(ctx, pushed, min);
 }
 
-void	ft_quicksort_b(t_context **ctx, int size)
+void	ft_quicksort_b(t_context **ctx, int size, int min)
 {
 	int	pivot;
 	int	pushed;
@@ -98,13 +98,13 @@ void	ft_quicksort_b(t_context **ctx, int size)
 		ft_sort_small(ctx, size, 0);
 		return ;
 	}
-	pivot = ft_find_pivot((*ctx)->b, size);
+	pivot = min + (size / 2);
 	pushed = ft_partition_b_to_a(ctx, size, pivot);
-	ft_quicksort_a(ctx, pushed);
-	ft_quicksort_b(ctx, size - pushed);
+	ft_quicksort_a(ctx, pushed, pivot);
+	ft_quicksort_b(ctx, size - pushed, min);
 }
 
 void	ft_sort_complex_algorithm(t_context **ctx)
 {
-	ft_quicksort_a(ctx, ft_lstsize((*ctx)->a));
+	ft_quicksort_a(ctx, ft_lstsize((*ctx)->a), 0);
 }

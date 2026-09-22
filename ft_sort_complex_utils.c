@@ -6,7 +6,7 @@
 /*   By: abezatog <abezatog@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/22 14:57:17 by abezatog          #+#    #+#             */
-/*   Updated: 2026/09/22 21:03:40 by abezatog         ###   ########.fr       */
+/*   Updated: 2026/09/22 22:07:09 by abezatog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,23 +23,6 @@ int	ft_is_sorted_chunk(t_list *stack, int size, int is_a)
 		stack = stack->next;
 	}
 	return (1);
-}
-
-int	ft_find_pivot(t_list *stack, int size)
-{
-	int	min;
-	int	i;
-
-	min = stack->index;
-	i = 0;
-	while (i < size && stack)
-	{
-		if (stack->index < min)
-			min = stack->index;
-		stack = stack->next;
-		i++;
-	}
-	return (min + (size / 2));
 }
 
 static void	ft_sort_three_a(t_context **ctx)
