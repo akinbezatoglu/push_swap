@@ -29,7 +29,8 @@ COMMONSRCS = ft_ctxnew.c ft_ctxclear.c ft_parser.c ft_parser_utils.c \
 			 ft_operations_push.c ft_operations_rotate.c \
 			 ft_operations_reverse_rotate.c ft_compute_disorder.c \
 			 ft_sort.c ft_sort_simple_algorithm.c ft_sort_medium_algorithm.c \
-			 ft_sort_complex_algorithm.c ft_sort_utils.c ft_assign_indexes.c
+			 ft_sort_complex_algorithm.c ft_sort_complex_utils.c \
+			 ft_sort_utils.c ft_assign_indexes.c
 COMMONOBJS = $(COMMONSRCS:.c=.o)
 
 BNSSRCS = checker_bonus.c checker_gnl_bonus.c

@@ -60,6 +60,13 @@ void		ft_sort_medium_algorithm(t_context **ctx);
 void		ft_sort_complex_algorithm(t_context **ctx);
 void		ft_sort_adaptive_algorithm(t_context **ctx);
 
+int			ft_find_pivot(t_list *stack, int size, int rank);
+int			ft_partition_a_to_b(t_context **ctx, int size, int pivot);
+void		ft_sort_small_a(t_context **ctx, int size);
+void		ft_sort_small_b(t_context **ctx, int size);
+void		ft_quicksort_a(t_context **ctx, int size);
+void		ft_quicksort_b(t_context **ctx, int size);
+
 int			ft_find_min_pos(t_list *stack);
 int			ft_get_target_pos(t_list *stack, int target_idx);
 void		ft_rotate_a_target_pos_to_first(t_context **ctx, int target_pos);
