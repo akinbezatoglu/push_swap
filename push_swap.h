@@ -6,7 +6,7 @@
 /*   By: abezatog <abezatog@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/05 17:30:55 by abezatog          #+#    #+#             */
-/*   Updated: 2026/09/22 14:25:29 by abezatog         ###   ########.fr       */
+/*   Updated: 2026/09/22 18:04:38 by abezatog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,10 +60,10 @@ void		ft_sort_medium_algorithm(t_context **ctx);
 void		ft_sort_complex_algorithm(t_context **ctx);
 void		ft_sort_adaptive_algorithm(t_context **ctx);
 
-int			ft_find_pivot(t_list *stack, int size, int rank);
+int			ft_is_sorted_chunk(t_list *stack, int size, int is_a);
+int			ft_find_pivot(t_list *stack, int size);
+void		ft_sort_small(t_context **ctx, int size, int is_a);
 int			ft_partition_a_to_b(t_context **ctx, int size, int pivot);
-void		ft_sort_small_a(t_context **ctx, int size);
-void		ft_sort_small_b(t_context **ctx, int size);
 void		ft_quicksort_a(t_context **ctx, int size);
 void		ft_quicksort_b(t_context **ctx, int size);
 

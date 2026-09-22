@@ -6,127 +6,114 @@
 /*   By: abezatog <abezatog@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/22 14:57:17 by abezatog          #+#    #+#             */
-/*   Updated: 2026/09/22 16:38:00 by abezatog         ###   ########.fr       */
+/*   Updated: 2026/09/22 18:01:09 by abezatog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	ft_swap_int(int *a, int *b)
+int	ft_is_sorted_chunk(t_list *stack, int size, int is_a)
 {
-	int	tmp;
-
-	tmp = *a;
-	*a = *b;
-	*b = tmp;
-}
-
-static void	ft_sort_array(int *arr, int len)
-{
-	int	i;
-	int	j;
-
-	i = 0;
-	while (i < len - 1)
+	while (size-- > 1 && stack && stack->next)
 	{
-		j = i + 1;
-		while (j < len)
-		{
-			if (arr[i] > arr[j])
-				ft_swap_int(&arr[i], &arr[j]);
-			j++;
-		}
-		i++;
+		if (is_a && stack->index > stack->next->index)
+			return (0);
+		if (!is_a && stack->index < stack->next->index)
+			return (0);
+		stack = stack->next;
 	}
+	return (1);
 }
 
-int	ft_find_pivot(t_list *stack, int size, int rank)
+int	ft_find_pivot(t_list *stack, int size)
 {
-	int	*arr;
+	int	min;
 	int	i;
-	int	pivot;
 
-	arr = (int *)malloc(sizeof(int) * size);
-	if (!arr)
-		return (stack->index);
+	min = stack->index;
 	i = 0;
 	while (i < size && stack)
 	{
-		arr[i] = stack->index;
+		if (stack->index < min)
+			min = stack->index;
 		stack = stack->next;
 		i++;
 	}
-	ft_sort_array(arr, size);
-	pivot = arr[rank];
-	free(arr);
-	return (pivot);
+	return (min + (size / 2));
 }
 
-static void	ft_sort_three_a_desc(t_context **ctx)
-{
-	sa(ctx);
-	pb(ctx);
-	sa(ctx);
-	pa(ctx);
-	sa(ctx);
-}
-
-void	ft_sort_small_a(t_context **ctx, int size)
+static void	ft_sort_three_a(t_context **ctx)
 {
 	int	a;
-	int	b;
 	int	c;
 
-	if (size <= 1)
-		return ;
-	if (size == 2)
-	{
-		if ((*ctx)->a->index > (*ctx)->a->next->index)
-			sa(ctx);
-		return ;
-	}
+	if ((*ctx)->a->index > (*ctx)->a->next->index)
+		sa(ctx);
 	a = (*ctx)->a->index;
-	b = (*ctx)->a->next->index;
 	c = (*ctx)->a->next->next->index;
-	if (a < b && b < c)
-		return ;
-	else if (a < c && c < b)
-	{
-		pb(ctx);
-		sa(ctx);
-		pa(ctx);
-	}
-	else if (b < a && a < c)
-		sa(ctx);
-	else if (c < a && a < b)
+	if (a > c)
 	{
 		pb(ctx);
 		sa(ctx);
 		pa(ctx);
 		sa(ctx);
 	}
-	else if (b < c && c < a)
+	else if ((*ctx)->a->next->index > c)
 	{
-		sa(ctx);
 		pb(ctx);
 		sa(ctx);
 		pa(ctx);
 	}
-	else
-		ft_sort_three_a_desc(ctx);
 }
 
-void	ft_sort_small_b(t_context **ctx, int size)
+static void	ft_sort_three_b(t_context **ctx)
 {
-	if (size <= 0)
-		return ;
-	if (size == 1)
-	{
-		pa(ctx);
-		return ;
-	}
+	int	a;
+	int	c;
+
 	if ((*ctx)->b->index < (*ctx)->b->next->index)
 		sb(ctx);
+	a = (*ctx)->b->index;
+	c = (*ctx)->b->next->next->index;
+	if (a < c)
+	{
+		pa(ctx);
+		sb(ctx);
+		pb(ctx);
+		sb(ctx);
+	}
+	else if ((*ctx)->b->next->index < c)
+	{
+		pa(ctx);
+		sb(ctx);
+		pb(ctx);
+	}
 	pa(ctx);
 	pa(ctx);
+	pa(ctx);
+}
+
+void	ft_sort_small(t_context **ctx, int size, int is_a)
+{
+	if (is_a)
+	{
+		if (size == 2 && (*ctx)->a->index > (*ctx)->a->next->index)
+			sa(ctx);
+		else if (size == 3)
+			ft_sort_three_a(ctx);
+	}
+	else
+	{
+		if (size == 1)
+			pa(ctx);
+		else if (size == 2)
+		{
+			if ((*ctx)->b->index < (*ctx)->b->next->index)
+				sb(ctx);
+			pa(ctx);
+			pa(ctx);
+		}
+		else if (size == 3)
+			ft_sort_three_b(ctx);
+	}
 }
