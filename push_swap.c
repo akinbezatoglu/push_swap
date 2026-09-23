@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abezatog <abezatog@student.42istanbul.c    +#+  +:+       +#+        */
+/*   By: yturkeri <yturkeri@student.42istanbul.com.tr>+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/05 17:18:42 by abezatog          #+#    #+#             */
-/*   Updated: 2026/09/22 14:27:31 by abezatog         ###   ########.fr       */
+/*   Updated: 2026/09/23 17:54:27 by yturkeri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,11 @@ int	main(int argc, char **argv)
 	if (!ctx)
 		return (write_error());
 	if (ctx->disorder == 0.0f)
+	{
+		if (ctx->bench)
+			ft_benchmark(ctx);
 		return (0);
+	}
 	ctx->print_ops = 1;
 	ft_sort(&ctx);
 	if (ctx->bench)
