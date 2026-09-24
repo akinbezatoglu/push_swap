@@ -6,7 +6,7 @@
 /*   By: abezatog <abezatog@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/10 17:09:39 by abezatog          #+#    #+#             */
-/*   Updated: 2026/09/20 09:49:29 by abezatog         ###   ########.fr       */
+/*   Updated: 2026/09/24 18:53:32 by abezatog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,8 +77,6 @@ int	main(int argc, char **argv)
 	ctx = ft_parser(++argv);
 	if (!ctx)
 		return (write_error(NULL));
-	if (ctx->disorder == 0.0f)
-		return (0);
 	ctx->print_ops = 0;
 	if (!ft_process_operations(&ctx))
 		return (write_error(&ctx));
